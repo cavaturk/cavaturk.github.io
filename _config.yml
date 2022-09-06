@@ -16,11 +16,11 @@
 #theme: jekyll-theme-so-simple
 remote_theme: "mmistakes/so-simple-theme@3.2.0"
 skin: "/assets/css/skins/light.css"
-locale: tr-TR
-title: "Bir Yazılımcının Seyir Defteri"
-description: "mustafacalik.com"
+locale: en-US
+title: "Logbook of a Software Developer"
+description: "cavaturk.com"
 baseurl: "/" # the subpath of your site, e.g. "/blog"
-url: "http://www.mustafacalik.com" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url: "http://cavaturk.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 logo: "/images/mybil.jpg" # path of site logo, e.g. "/assets/images/logo.png"
 date_format: "%B %-d, %Y"
 read_time: true
@@ -36,9 +36,9 @@ google_fonts:
     weights: "400,400i,700,700i"
 google_analytics: "G-HV24M0MBZW"
 disqus:
-  shortname: "mustafacalik"
+  shortname: "cavaturk"
 twitter:
-  username: mustafacalik # site's Twitter username
+  username: cavaturk # site's Twitter username
 
 # Liquid
 liquid:
@@ -53,14 +53,14 @@ feed:
 paginate: 10
 paginate_path: /page:num/
 
-copyright: "© 2021 Mustafa Çalık"
+copyright: "© 2022 cavaturk"
 
 # Search
 search_full_content: false
 
 # Taxonomy pages
-category_archive_path: "/kategoriler/#"
-tag_archive_path: "/etiketler/#"
+category_archive_path: "/categories/#"
+tag_archive_path: "/labels/#"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
@@ -107,10 +107,10 @@ defaults:
 
 # Site Author
 author:
-  name: Mustafa Çalık
+  name: cavaturk
   picture: /images/mustafa.jpg
   email:
-  twitter: mustafacalik
+  twitter: cavaturk
   links:
     - title: Twitter
       url: https://twitter.com/mustafacalik
