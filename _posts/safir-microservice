@@ -1,0 +1,77 @@
+
+https://suadev.gitbook.io/turkish-microservices-book/microservice-mimariler-icin-yol-haritasi
+
+Mikroservis Mimari’ye dönüşümde ilk önce veri tabanı kısmını tasarlamak ve mevcut veri tabanının servislere özel olarak ayrışıp ayrıştırılamayacağı, bu işin eforunun ne olacağı konusunda biraz kafa patlatmak gerekiyor.
+
+
+
+Servislerimizi monolith yapıdan birer birer kopararak kontrollü bir şekilde devreye almamız gerekmekte
+
+
+İlk servisi mümkün olduğunca basit ve ayırması kolay olan bir servis olarak seçmenizdir.
+
+
+DDD ile loosely coupled bir mimari oluştururuz.
+
+DDD’de birbirine bağımlı olmaması gereken bu modüller bounded yani sınırlı context’ler olarak isimlendiriliyor
+
+Bir Bounded Context bize domain’in sınırlarını çizerken, bir Mikroservis, domain’den etkilenmekle beraber teknik ve organizasyonel sınırları belirler.
+
+
+
+
+
+
+
+UploadController
+
+
+
+POST /rest/api/uploads
+
+initUpload
+
+https://safirdepo-local.b3lab.org/rest/api/uploads
+
+
+
+-File extension guava kütüphanesi ile bulunup PermittionExtension tablosunda isPermitted değilse hata fırlatılır
+
+-Current user iser User tablosuna gidilir...
+
+-Kota sorgulama için StorageQuota tablosuna gidilir...
+
+--SafirObject ve Upload tablolarına kayıt yaratılır yeni bir UUID ile...
+
+--s3 upload id elde edilir
+
+--upload ve safir object save edilir
+
+
+
+chunk gönderme
+
+PUT /rest/api/uploads{objectId}/{chunk}
+
+https://safirdepo-local.b3lab.org/rest/api/uploads/64d743eb-f017-4962-8f81-4bd77825e2d7/1
+
+
+--upload tablosundan gelen kayıt çekilir
+--chunk count ile validasyon yapılır //upload tablosundaki chunk counttan büyük olmamalı yoksa exceptin fırlatılır
+--s3 upload chunk işlemi yapılır
+--upload tablosuna ait chunklara gidilir (chunk tablosu ve bunlar doldurulur)
+
+
+
+
+
+commit aşaması
+
+POST /rest/api/uploads{objectId}
+
+--ilgili uploadid dbden çekilir
+--tüm chunklar chunk tablosunda var mı kontrol edilir
+--s3 complete multipart ucu çağrılır
+--user kotası kontrol edilir ve güncellenir, aşmışsa silinir
+--upload tablosu güncellenir
+--notification atılır
