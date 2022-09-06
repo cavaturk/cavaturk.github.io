@@ -10,7 +10,7 @@ tags: [Mülakat]
 ---
 Mülakatlarda karşılaşılan java sorularını ve cevaplarını bu yazıda bulabilirsiniz. Yeni sorular ve cevaplar ile güncelliğini koruyan bir paylaşım olmaya devam edecektir.
 
-Hellooooooooooooooooooooo !!!!!!!!!!!
+---> Hellooooooooooooooooooooo !!!!!!!!!!!
 
 ### 1.  JVM, JDK, JRE nedir ?
 
